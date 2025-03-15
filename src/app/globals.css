@@ -12,7 +12,7 @@
 
 html,
 body {
-  max-width: 100vw;
+  /* max-width: 100vw; */
   overflow-x: hidden;
 }
 
@@ -22,13 +22,15 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
+
+/* * {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+} */
 
 a {
   color: inherit;
@@ -39,4 +41,46 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+
+/* Custom CSS */
+.topbar{
+margin: auto;
+width: 100%;
+height: 60px;
+background-color: #0a0a0a;
+padding: 10;
+margin: 0;
+color: #ffffff;
+
+}
+
+ul#menu  {
+  float: left;
+}
+ul#menu li {
+  display:inline;
+  margin-left: 10px;
+}
+
+ul#menu-user {
+  margin-right: 20px;
+  float: right;
+}
+ul#menu-user li {
+  display:inline;
+  margin-right: 10px;
+}
+
+.clear{
+  clear: both;
+}
+
+.block{
+  margin: 20px;
+}
+
+.blockContent{
+  margin: 20px;
 }
