@@ -15,29 +15,6 @@ async function getPost(id: string) {
   return post
 }
  
-// export async function generateStaticParams() {
-//   const posts = await fetch('https://api.vercel.app/blog', {
-//     cache: 'force-cache',
-//   }).then((res) => res.json())
- 
-//   return posts.map((post: Post) => ({
-//     id: String(post.id),
-//   }))
-// }
- 
-// export async function generateMetadata({
-//   params,
-// }: {
-//   params: Promise<{ id: string }>
-// }) {
-//   const { id } = await params
-//   const post = await getPost(id)
- 
-//   return {
-//     title: post.title,
-//   }
-// }
- 
 export default async function Page({
   params,
 }: {

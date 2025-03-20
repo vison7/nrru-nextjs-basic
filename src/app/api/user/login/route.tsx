@@ -1,20 +1,41 @@
 import { NextResponse } from "next/server";
+import { query } from "@/app/lib/db";
 
-export async function POST() {
-  const data = {
-    status: true,
-    token:"123456",
-    data: {
-      firstname: "Vison",
-      email: "vison7.sun@gmail.com",
-    },
-  };
+import { cookies } from "next/headers";
 
-  // const res = await fetch(process.env.API_BLOG_URL, {
-  //   method: "GET",
-  // });
+export async function POST(request: Request) {
+  const body = await request.json();
 
-  // data = await res.json();
+  const text = "SELECT * from users WHERE username=$1 and password=$2";
+  const values = [body.username, body.password];
 
-  return NextResponse.json(data);
+  try {
+    const res = await query(text, values);
+    console.log(res.rows);
+
+    if (res.rows[0]) {
+      // set cookie token
+      (await cookies()).set({
+        name: "token",
+        value: JSON.stringify(res.rows[0]),
+        path: "/",
+        maxAge: 3600,
+      });
+
+      return NextResponse.json({ status: 200, profile: res.rows[0] });
+    } else {
+      return NextResponse.json({
+        status: 404,
+        message: "User or password invalid.",
+      });
+    }
+
+    // Return the first row or null if not found
+  } catch (error) {
+    console.error("Database query failed:", error);
+    return NextResponse.json(
+      { status: 500, error: "Internal Server Error" },
+      { status: 500 }
+    );
+  }
 }
