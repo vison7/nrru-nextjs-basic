@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+// import { useRouter } from "next/navigation";
+import {  useState } from "react";
 
 export default function Page() {
   const [name, setName] = useState("");
@@ -10,7 +10,7 @@ export default function Page() {
 
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  const router = useRouter();
+  // const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

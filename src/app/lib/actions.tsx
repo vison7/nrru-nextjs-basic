@@ -55,6 +55,6 @@ export async function createFeedback(formData: FormData) {
   redirect("/form/success?code=" + code);
 }
 
-export async function updateProduct(formData: FormData) {}
+// export async function updateProduct(formData: FormData) {}
 
-export async function deleteProduct(formData: FormData) {}
+// export async function deleteProduct(formData: FormData) {}

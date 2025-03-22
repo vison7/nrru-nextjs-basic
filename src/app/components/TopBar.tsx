@@ -25,7 +25,7 @@ const TopBar = async () => {
           <Link href="/blog-client">Blog (Client)</Link>
         </li> */}
         <li>
-          <Link href="/product">Product</Link>
+          <Link href="/products">Product</Link>
         </li>
         <li>
           <Link href="/about">About</Link>
@@ -35,33 +35,30 @@ const TopBar = async () => {
         </li>
       </ul>
 
-      {/* {error && <p style={{ color: "red" }}>{error}</p>} */}
       {(token?.value && (
         <>
-          <ul id="menu-user">
+          {/* <ul id="menu-user">
             <li>
               <Link href="/user/login">Hi, {user?.username}</Link>
             </li>
             <li>
               <Link href="/user/logout">Logout</Link>
-              {/* <button onClick={() => handleLogout()}>Logout</button> */}
             </li>
-          </ul>
+          </ul> */}
         </>
       )) || (
         <>
-          <ul id="menu-user">
+          {/* <ul id="menu-user">
             <li>
               <Link href="/user/login">Login</Link>
             </li>
             <li>
               <Link href="/user/register">Register</Link>
             </li>
-          </ul>
+          </ul> */}
         </>
       )}
 
-      {/* <div className="clear"></div> */}
     </div>
   );
 };

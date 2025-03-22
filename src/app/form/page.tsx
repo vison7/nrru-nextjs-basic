@@ -19,6 +19,7 @@ const Form = () => {
                   name="name"
                   placeholder="Name"
                   defaultValue={""}
+                  required
                 ></input>
               </td>
             </tr>
@@ -30,6 +31,7 @@ const Form = () => {
                   name="email"
                   placeholder="Email"
                   defaultValue={""}
+                  required
                 ></input>
               </td>
             </tr>
@@ -40,6 +42,7 @@ const Form = () => {
                   name="message"
                   placeholder="Message"
                   defaultValue={""}
+                  required
                 ></textarea>
               </td>
             </tr>

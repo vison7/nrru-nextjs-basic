@@ -1,13 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { NextResponse } from "next/server";
 import { query } from "@/app/lib/db";
 
-interface Params {
-  params: {
-    id: string;
-  };
-}
-
-export async function GET(request: Request, { params }: Params) {
+export async function GET(request: Request, { params }: any) {
   try {
     const results = await query("SELECT * FROM products WHERE id = $1", [
       params.id,
@@ -19,13 +14,13 @@ export async function GET(request: Request, { params }: Params) {
     }
   } catch (error) {
     return NextResponse.json(
-      { error: "Internal Server Error" },
+      { error: "Internal Server Error:" + error },
       { status: 500 }
     );
   }
 }
 
-export async function PUT(request: Request, { params }: Params) {
+export async function PUT(request: Request, { params }: any) {
   try {
     const { name, description, price } = await request.json();
     const results = await query(
@@ -39,13 +34,13 @@ export async function PUT(request: Request, { params }: Params) {
     }
   } catch (error) {
     return NextResponse.json(
-      { error: "Internal Server Error" },
+      { error: "Internal Server Error:" + error },
       { status: 500 }
     );
   }
 }
 
-export async function DELETE(request: Request, { params }: Params) {
+export async function DELETE(request: Request, { params }: any) {
   try {
     const results = await query(
       "DELETE FROM products WHERE id = $1 RETURNING *",
@@ -58,7 +53,7 @@ export async function DELETE(request: Request, { params }: Params) {
     }
   } catch (error) {
     return NextResponse.json(
-      { error: "Internal Server Error" },
+      { error: "Internal Server Error:" + error },
       { status: 500 }
     );
   }

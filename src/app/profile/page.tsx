@@ -1,7 +1,7 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import { useHasCookie, useGetCookie } from "cookies-next";
+// import { useRouter } from "next/navigation";
+import { useGetCookie } from "cookies-next";
 import { useEffect } from "react";
 
 export default function Profile() {
