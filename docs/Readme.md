@@ -61,3 +61,41 @@ https://tailwindcss.com/plus/ui-blocks
 
 npm install @headlessui/react @heroicons/react
 
+
+## Postges Database
+```
+CREATE TABLE users (
+    user_id SERIAL PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    first_name VARCHAR(100),
+    last_name VARCHAR(100),
+    date_of_birth DATE,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    is_active BOOLEAN DEFAULT TRUE,
+    role VARCHAR(50) DEFAULT 'user' -- Example: 'user', 'admin', 'moderator'
+);
+```
+
+
+```
+CREATE TABLE products (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    description TEXT,
+    price DECIMAL(10, 2) NOT NULL
+);
+```
+
+
+```
+CREATE TABLE feedback (
+ id SERIAL PRIMARY KEY,
+ name VARCHAR(255) NOT NULL,
+ email VARCHAR(255) NOT NULL,
+ message TEXT NOT NULL,
+ created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
