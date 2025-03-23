@@ -24,6 +24,24 @@
 
 `docker run -d --name mypostgres -p 5432:5432 -e POSTGRES_PASSWORD=root postgres`
 
+
+# DB Config
+
+`POSTGRES_URL="postgres://user:password@127.0.0.1:5432/nrru-db"`
+
+`POSTGRES_URL_NON_POOLING="postgres://user:password@127.0.0.1:5432/nrru-db"`
+
+`POSTGRES_USER="user"`
+
+`POSTGRES_HOST="localhost"`
+
+`POSTGRES_PASSWORD="password"`
+
+`POSTGRES_DATABASE="nrru-db"`
+
+`POSTGRES_PORT="nrru-db"`
+
+
 ## Rebuild Docker
 `docker-compose up -d --force-recreate --no-deps --build $service`
 
