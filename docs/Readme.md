@@ -20,6 +20,7 @@
 	-v ./data-postgres:/var/lib/postgresql/data \
 	postgres
 
+`docker run -d --name my-postgres -p 5432:5432 -e POSTGRES_PASSWORD=root -e PGDATA=/var/lib/postgresql/data/pgdata -v ./data-postgres:/var/lib/postgresql/data postgres`
 
 `docker run -d --name mypostgres -p 5432:5432 -e POSTGRES_PASSWORD=root postgres`
 
